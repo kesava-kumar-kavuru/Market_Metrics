@@ -5,22 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 quantum-glow",
+        default: "bg-primary text-white hover:bg-primary/80 hover:shadow-md hover:shadow-primary/25 active:scale-[0.98]",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-red-600 text-white hover:bg-red-500 hover:shadow-md hover:shadow-red-500/25 active:scale-[0.98]",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border-2 border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary active:scale-[0.98]",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        quantum: "gradient-quantum text-white hover:shadow-lg transform hover:scale-105 quantum-glow font-semibold",
-        financial: "gradient-financial text-black hover:shadow-lg transform hover:scale-105 financial-glow font-semibold",
-        neural: "gradient-neural text-white hover:shadow-lg transform hover:scale-105 animate-neural-glow font-semibold",
+          "bg-muted text-foreground border border-border hover:bg-muted/80 hover:border-border/80 active:scale-[0.98]",
+        ghost: "text-foreground hover:bg-muted/50 hover:text-primary active:scale-[0.98]",
+        link: "text-primary underline-offset-4 hover:underline hover:text-primary/80",
+        quantum: "bg-gradient-to-r from-cyan-500 to-purple-600 text-white hover:from-cyan-400 hover:to-purple-500 hover:shadow-lg hover:shadow-purple-500/30 transform hover:scale-[1.02] active:scale-[0.98] font-semibold",
+        financial: "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white hover:from-emerald-400 hover:to-cyan-400 hover:shadow-lg hover:shadow-emerald-500/30 transform hover:scale-[1.02] active:scale-[0.98] font-semibold",
+        neural: "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-400 hover:to-pink-400 hover:shadow-lg hover:shadow-purple-500/30 transform hover:scale-[1.02] active:scale-[0.98] font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",

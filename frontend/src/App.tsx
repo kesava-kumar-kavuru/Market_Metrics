@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import LiveTradingPage from "./pages/LiveTradingPage";
 import QuantumPredictorPage from "./pages/QuantumPredictorPage";
 import VolatilityRegimePage from "./pages/VolatilityRegimePage";
+import ArchitecturePage from "./pages/ArchitecturePage";
 
 const queryClient = new QueryClient();
 
@@ -61,6 +62,7 @@ const App = () => (
         <SidebarProvider>
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/architecture" element={<ArchitecturePage />} />
             <Route path="/original" element={<Index />} />
             
             {/* These routes now correctly render inside the provider */}

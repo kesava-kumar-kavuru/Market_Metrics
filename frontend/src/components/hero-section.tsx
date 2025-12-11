@@ -19,14 +19,14 @@ export function HeroSection() {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl">
           {/* Badge */}
-          <Badge className="mb-6 quantum-glow">
+          <Badge className="mb-6">
             <div className="w-2 h-2 bg-primary rounded-full mr-2 animate-quantum-pulse"></div>
             Quantum Machine Learning • FTSE 100 Analysis
           </Badge>
 
           {/* Main Heading */}
           <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="gradient-quantum bg-clip-text text-transparent">
+            <span className="text-primary">
               Quantum-Powered
             </span>
             <br />
@@ -42,29 +42,29 @@ export function HeroSection() {
 
           {/* Key Features */}
           <div className="flex flex-wrap gap-4 mb-8">
-            <div className="flex items-center space-x-2 text-sm">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
+            <div className="flex items-center space-x-2 text-sm text-foreground">
+              <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
               <span>Quantum Circuit Optimization</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm">
-              <div className="w-2 h-2 bg-secondary rounded-full"></div>
+            <div className="flex items-center space-x-2 text-sm text-foreground">
+              <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
               <span>Real-time FTSE 100 Data</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm">
-              <div className="w-2 h-2 bg-accent rounded-full"></div>
+            <div className="flex items-center space-x-2 text-sm text-foreground">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
               <span>87.3% Prediction Accuracy</span>
             </div>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="text-lg px-8 btn-quantum">
+            <Button className="text-lg px-8">
               Explore Dashboard
             </Button>
-            <Button className="text-lg px-8 btn-neural">
+            <Button variant="secondary" className="text-lg px-8">
               View Quantum Model
             </Button>
-            <Button className="text-lg px-8 btn-financial">
+            <Button variant="outline" className="text-lg px-8">
               Download Results
             </Button>
           </div>

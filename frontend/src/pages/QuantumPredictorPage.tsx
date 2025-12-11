@@ -170,9 +170,9 @@ const QuantumPredictorPage = () => {
         <div>
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 rounded-lg bg-primary/10">
-              <Brain className="w-8 h-8 text-primary animate-pulse" />
+              <Brain className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-3xl font-bold gradient-quantum bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold text-foreground">
               Quantum Stock Predictor
             </h1>
           </div>
@@ -183,7 +183,8 @@ const QuantumPredictorPage = () => {
         <Button
           onClick={fetchPrediction}
           disabled={loading}
-          className="gradient-quantum text-white"
+          variant="quantum"
+          size="default"
         >
           <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
           {loading ? 'Fetching...' : 'Get Prediction'}
@@ -195,7 +196,7 @@ const QuantumPredictorPage = () => {
         {/* Model Selection */}
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
+            <CardTitle className="flex items-center gap-2 text-lg text-foreground">
               <Layers className="w-5 h-5 text-primary" />
               Model Selection
             </CardTitle>
@@ -210,18 +211,18 @@ const QuantumPredictorPage = () => {
               <button
                 key={value}
                 onClick={() => setSelectedModel(value)}
-                className={`w-full px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${
+                className={`w-full px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3 border-2 ${
                   selectedModel === value
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted/30 text-muted-foreground hover:bg-muted/50'
+                    ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-primary text-foreground shadow-md shadow-primary/20'
+                    : 'bg-card/50 border-border/50 text-muted-foreground hover:bg-muted/50 hover:border-primary/50 hover:text-foreground'
                 }`}
               >
-                <Icon className="w-5 h-5" />
+                <Icon className={`w-5 h-5 ${selectedModel === value ? 'text-primary' : ''}`} />
                 <span className="font-medium flex-1 text-left">{label}</span>
-                <Badge variant={selectedModel === value ? "secondary" : "outline"}>
+                <Badge variant={selectedModel === value ? "default" : "outline"} className={selectedModel === value ? 'bg-primary text-white' : ''}>
                   {accuracy}
                 </Badge>
-                {selectedModel === value && <CheckCircle className="w-5 h-5" />}
+                {selectedModel === value && <CheckCircle className="w-5 h-5 text-emerald-400" />}
               </button>
             ))}
           </CardContent>
@@ -230,7 +231,7 @@ const QuantumPredictorPage = () => {
         {/* Timeframe Selection */}
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
+            <CardTitle className="flex items-center gap-2 text-lg text-foreground">
               <Clock className="w-5 h-5 text-primary" />
               Timeframe Analysis
             </CardTitle>
@@ -245,13 +246,13 @@ const QuantumPredictorPage = () => {
                 <button
                   key={value}
                   onClick={() => setTimeframe(value)}
-                  className={`px-4 py-4 rounded-lg transition-all text-center ${
+                  className={`px-4 py-4 rounded-lg transition-all duration-200 text-center border-2 ${
                     timeframe === value
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted/30 text-muted-foreground hover:bg-muted/50'
+                      ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-primary text-foreground shadow-md shadow-primary/20'
+                      : 'bg-card/50 border-border/50 text-muted-foreground hover:bg-muted/50 hover:border-primary/50 hover:text-foreground'
                   }`}
                 >
-                  <div className="font-bold mb-1">{label}</div>
+                  <div className={`font-bold mb-1 ${timeframe === value ? 'text-primary' : ''}`}>{label}</div>
                   <div className="text-xs opacity-80">{desc}</div>
                   <div className="text-xs mt-2 opacity-60">Qubits: {qubits}</div>
                 </button>
@@ -260,19 +261,19 @@ const QuantumPredictorPage = () => {
 
             {/* Qubit Assignment Info */}
             <div className="mt-4 p-3 rounded-lg bg-muted/20 border border-border/30">
-              <div className="text-sm font-medium mb-2">6-Qubit Assignment:</div>
+              <div className="text-sm font-medium mb-2 text-foreground">6-Qubit Assignment:</div>
               <div className="grid grid-cols-3 gap-2 text-xs">
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 rounded-full bg-purple-500" />
-                  <span>Q0-1: Hourly</span>
+                  <span className="text-muted-foreground">Q0-1: Hourly</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 rounded-full bg-blue-500" />
-                  <span>Q2-3: Daily</span>
+                  <span className="text-muted-foreground">Q2-3: Daily</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 rounded-full bg-cyan-500" />
-                  <span>Q4-5: Weekly</span>
+                  <span className="text-muted-foreground">Q4-5: Weekly</span>
                 </div>
               </div>
             </div>
@@ -304,7 +305,7 @@ const QuantumPredictorPage = () => {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <div className="text-muted-foreground text-sm mb-1">Latest Prediction</div>
-                  <div className="text-4xl font-bold gradient-quantum bg-clip-text text-transparent">
+                  <div className="text-4xl font-bold text-foreground">
                     FTSE 100
                   </div>
                 </div>
@@ -371,7 +372,7 @@ const QuantumPredictorPage = () => {
           {/* Feature Importance */}
           <Card className="bg-card/50 border-border/50">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
+              <CardTitle className="flex items-center gap-2 text-lg text-foreground">
                 <Target className="w-5 h-5 text-primary" />
                 Top Features
               </CardTitle>
@@ -404,7 +405,7 @@ const QuantumPredictorPage = () => {
       {historicalData.length > 0 && (
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-foreground">
               <Clock className="w-5 h-5 text-primary" />
               Recent Predictions
             </CardTitle>
@@ -448,7 +449,7 @@ const QuantumPredictorPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-foreground">
               <BarChart3 className="w-5 h-5 text-primary" />
               Model Performance
             </CardTitle>
@@ -489,7 +490,7 @@ const QuantumPredictorPage = () => {
 
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-foreground">
               <Brain className="w-5 h-5 text-primary" />
               System Architecture
             </CardTitle>

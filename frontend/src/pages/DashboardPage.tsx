@@ -135,15 +135,15 @@ const DashboardPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold gradient-quantum bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-foreground">
             Dashboard
           </h1>
           <p className="text-muted-foreground">
             Real-time quantum ML market analysis
           </p>
         </div>
-        <Badge className="animate-quantum-pulse">
-          <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
+        <Badge variant="success" className="flex items-center">
+          <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
           Live Trading
         </Badge>
       </div>
@@ -202,23 +202,23 @@ const DashboardPage = () => {
           <CardContent className="space-y-4">
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Circuit Depth</span>
-              <span className="font-semibold">12 layers</span>
+              <span className="font-semibold text-foreground">12 layers</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Quantum Volume</span>
-              <span className="font-semibold">64</span>
+              <span className="font-semibold text-foreground">64</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Gate Fidelity</span>
-              <span className="font-semibold text-accent">99.5%</span>
+              <span className="font-semibold text-green-400">99.5%</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Coherence Time</span>
-              <span className="font-semibold">150 μs</span>
+              <span className="font-semibold text-foreground">150 μs</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Error Rate</span>
-              <span className="font-semibold text-destructive">0.5%</span>
+              <span className="font-semibold text-red-400">0.5%</span>
             </div>
           </CardContent>
         </Card>
@@ -243,15 +243,15 @@ const DashboardPage = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">Precision</span>
-                <span className="font-semibold">{model.precision}%</span>
+                <span className="font-semibold text-foreground">{model.precision}%</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">Recall</span>
-                <span className="font-semibold">{model.recall}%</span>
+                <span className="font-semibold text-foreground">{model.recall}%</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">F1 Score</span>
-                <span className="font-semibold">{model.f1Score}%</span>
+                <span className="font-semibold text-foreground">{model.f1Score}%</span>
               </div>
             </CardContent>
           </Card>

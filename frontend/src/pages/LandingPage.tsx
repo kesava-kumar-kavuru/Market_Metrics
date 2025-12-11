@@ -11,7 +11,7 @@ const LandingPage = () => {
     {
       icon: Brain,
       title: "Variational Quantum Classifier",
-      description: "Advanced VQC model for market prediction with 87.3% accuracy"
+      description: "Advanced VQC model for market prediction with 70% accuracy on IBM Brisbane"
     },
     {
       icon: TrendingUp,
@@ -48,7 +48,7 @@ const LandingPage = () => {
                 <span className="text-white font-bold">Q</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold gradient-quantum bg-clip-text text-transparent">
+                <h1 className="text-xl font-bold text-foreground">
                   QuantumTrader ML
                 </h1>
                 <p className="text-sm text-muted-foreground">Quantum Market Prediction</p>
@@ -81,7 +81,7 @@ const LandingPage = () => {
           </Badge>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="gradient-quantum bg-clip-text text-transparent">
+            <span className="text-primary">
               Quantum ML
             </span>
             <br />
@@ -90,14 +90,15 @@ const LandingPage = () => {
           
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto px-2">
             Revolutionary quantum machine learning approach to predict FTSE 100 market direction 
-            using Variational Quantum Classifiers with 87.3% accuracy.
+            using Variational Quantum Classifiers with 70% accuracy on IBM Quantum hardware.
           </p>
 
           <div className="flex justify-center mb-12">
             <Button 
               onClick={() => navigate('/dashboard')}
               size="lg"
-              className="text-lg px-10 py-6"
+              variant="quantum"
+              className="text-lg px-12 py-7 text-white"
             >
               Go to Dashboard
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -107,19 +108,19 @@ const LandingPage = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6 mb-12 md:mb-16 w-full">
             <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
-              <div className="text-2xl md:text-3xl font-bold gradient-quantum bg-clip-text text-transparent">87.3%</div>
+              <div className="text-2xl md:text-3xl font-bold text-cyan-400">70.0%</div>
               <div className="text-xs md:text-sm text-muted-foreground">VQC Accuracy</div>
             </Card>
             <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
-              <div className="text-2xl md:text-3xl font-bold gradient-financial bg-clip-text text-transparent">FTSE 100</div>
+              <div className="text-2xl md:text-3xl font-bold text-emerald-400">FTSE 100</div>
               <div className="text-xs md:text-sm text-muted-foreground">Market Data</div>
             </Card>
             <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
-              <div className="text-2xl md:text-3xl font-bold gradient-neural bg-clip-text text-transparent">Real-time</div>
+              <div className="text-2xl md:text-3xl font-bold text-purple-400">Real-time</div>
               <div className="text-xs md:text-sm text-muted-foreground">Predictions</div>
             </Card>
             <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
-              <div className="text-2xl md:text-3xl font-bold text-accent">IBM Q</div>
+              <div className="text-2xl md:text-3xl font-bold text-blue-400">IBM Q</div>
               <div className="text-xs md:text-sm text-muted-foreground">Quantum Backend</div>
             </Card>
           </div>
@@ -130,7 +131,7 @@ const LandingPage = () => {
           {features.map((feature, index) => (
             <Card key={index} className="p-5 md:p-6 bg-card/50 border-border/50 hover:bg-card/70 transition-all duration-300">
               <feature.icon className="h-10 w-10 md:h-12 md:w-12 text-primary mb-3 md:mb-4" />
-              <h3 className="text-base md:text-lg font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-base md:text-lg font-semibold mb-2 text-foreground">{feature.title}</h3>
               <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
             </Card>
           ))}
@@ -139,18 +140,18 @@ const LandingPage = () => {
         {/* Technical Overview */}
         <Card className="p-6 md:p-8 bg-card/30 border-border/50 w-full">
           <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Technical Architecture</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-foreground">Technical Architecture</h2>
             <p className="text-sm md:text-base text-muted-foreground mb-5 md:mb-6 max-w-3xl mx-auto px-2">
               Our quantum machine learning system combines classical preprocessing with quantum 
               variational circuits to achieve superior market prediction accuracy on FTSE 100 data.
             </p>
             <div className="flex justify-center">
               <Button
-                onClick={() => navigate('/quantum-predictor')}
+                onClick={() => navigate('/architecture')}
                 variant="outline"
-                className="hover:border-primary/50"
+                size="lg"
               >
-                Explore Architecture
+                View Architecture
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

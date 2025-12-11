@@ -159,7 +159,7 @@ const PredictionsPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold gradient-quantum bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-foreground">
             Predictions
           </h1>
           <p className="text-muted-foreground">
@@ -169,24 +169,25 @@ const PredictionsPage = () => {
         <Button 
           onClick={loadPredictions} 
           disabled={refreshing}
-          className="hover:border-primary/50"
+          variant="quantum"
+          size="default"
         >
           <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
-          Refresh
+          Refresh Data
         </Button>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="bg-card/50 border-border/50 quantum-glow">
+        <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
               <Brain className="h-4 w-4 text-primary" />
               Latest VQC Prediction
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold text-foreground">
               £{latestPrediction && latestPrediction.vqc_prediction != null ? latestPrediction.vqc_prediction.toFixed(2) : '--'}
             </div>
             <div className="flex items-center gap-2 mt-2">
@@ -209,13 +210,13 @@ const PredictionsPage = () => {
 
         <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
-              <Target className="h-4 w-4 text-accent" />
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
+              <Target className="h-4 w-4 text-emerald-400" />
               Prediction Accuracy
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-accent">
+            <div className="text-2xl font-bold text-emerald-400">
               {accuracy ? (accuracy * 100).toFixed(1) : '--'}%
             </div>
             <div className="text-sm text-muted-foreground mt-2">
@@ -226,13 +227,13 @@ const PredictionsPage = () => {
 
         <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
-              <Calendar className="h-4 w-4 text-secondary" />
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
+              <Calendar className="h-4 w-4 text-purple-400" />
               Next Update
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold text-foreground">
               Market Close
             </div>
             <div className="text-sm text-muted-foreground mt-2">
@@ -245,7 +246,7 @@ const PredictionsPage = () => {
       {/* Predictions Chart */}
       <Card className="bg-card/50 border-border/50">
         <CardHeader>
-          <CardTitle>Historical Predictions vs Actual Prices</CardTitle>
+          <CardTitle className="text-foreground">Historical Predictions vs Actual Prices</CardTitle>
         </CardHeader>
         <CardContent>
           <Line data={chartData} options={chartOptions} />
@@ -255,34 +256,34 @@ const PredictionsPage = () => {
       {/* Predictions Table */}
       <Card className="bg-card/50 border-border/50">
         <CardHeader>
-          <CardTitle>Recent Predictions</CardTitle>
+          <CardTitle className="text-foreground">Recent Predictions</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border/50">
-                  <th className="text-left py-3 px-4">Date</th>
-                  <th className="text-left py-3 px-4">Actual Price</th>
-                  <th className="text-left py-3 px-4">VQC Prediction</th>
-                  <th className="text-left py-3 px-4">SVM Prediction</th>
-                  <th className="text-left py-3 px-4">Signal</th>
-                  <th className="text-left py-3 px-4">Confidence</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Date</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Actual Price</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">VQC Prediction</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">SVM Prediction</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Signal</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Confidence</th>
                 </tr>
               </thead>
               <tbody>
                 {predictions.map((pred, index) => (
                   <tr key={index} className="border-b border-border/25 hover:bg-muted/50">
-                    <td className="py-3 px-4 text-sm">
+                    <td className="py-3 px-4 text-sm text-foreground">
                       {new Date(pred.date).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-4 font-semibold">
+                    <td className="py-3 px-4 font-semibold text-foreground">
                       £{pred.actual != null ? pred.actual.toFixed(2) : '--'}
                     </td>
-                    <td className="py-3 px-4 text-primary font-medium">
+                    <td className="py-3 px-4 text-cyan-400 font-medium">
                       £{pred.vqc_prediction != null ? pred.vqc_prediction.toFixed(2) : '--'}
                     </td>
-                    <td className="py-3 px-4 text-accent font-medium">
+                    <td className="py-3 px-4 text-emerald-400 font-medium">
                       £{pred.svm_prediction != null ? pred.svm_prediction.toFixed(2) : '--'}
                     </td>
                     <td className="py-3 px-4">

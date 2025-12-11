@@ -12,7 +12,7 @@ export function Navigation() {
               <span className="text-white font-bold text-sm">Q</span>
             </div>
             <div>
-              <h1 className="text-lg font-bold gradient-quantum bg-clip-text text-transparent">
+              <h1 className="text-lg font-bold text-foreground">
                 QuantumTrader
               </h1>
               <p className="text-xs text-muted-foreground">ML Market Predictor</p>

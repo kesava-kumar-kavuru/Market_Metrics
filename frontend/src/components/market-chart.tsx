@@ -20,11 +20,11 @@ export function MarketChart() {
   const confidence = "87.3%";
 
   return (
-    <Card className="quantum-glow">
+    <Card className="border-border/50">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle>FTSE 100 - Quantum Analysis</CardTitle>
-          <Badge className={`quantum-glow ${quantumPrediction === "UP" ? "badge-up" : "badge-down"}`}>
+          <CardTitle className="text-foreground">FTSE 100 - Quantum Analysis</CardTitle>
+          <Badge className={quantumPrediction === "UP" ? "bg-emerald-500/20 text-emerald-400" : "bg-red-500/20 text-red-400"}>
             {quantumPrediction} {confidence}
           </Badge>
         </div>
@@ -33,10 +33,10 @@ export function MarketChart() {
         <div className="space-y-4">
           {/* Current Price */}
           <div className="flex items-baseline space-x-2">
-            <span className="text-3xl font-bold gradient-financial bg-clip-text text-transparent">
+            <span className="text-3xl font-bold text-foreground">
               {currentPrice.toLocaleString()}
             </span>
-            <span className="text-accent font-medium">{dailyChange}</span>
+            <span className="text-emerald-400 font-medium">{dailyChange}</span>
           </div>
 
           {/* Mini Chart Visualization */}
@@ -47,8 +47,8 @@ export function MarketChart() {
                   <div
                     className={`w-2 bg-gradient-to-t rounded-full ${
                       point.prediction === "up" 
-                        ? "from-accent/60 to-accent" 
-                        : "from-destructive/60 to-destructive"
+                        ? "from-emerald-500/60 to-emerald-400" 
+                        : "from-red-500/60 to-red-400"
                     }`}
                     style={{
                       height: `${((point.price - 7800) / 150) * 100}%`,
@@ -65,17 +65,17 @@ export function MarketChart() {
 
           {/* Quantum Indicators */}
           <div className="grid grid-cols-3 gap-3 text-sm">
-            <div className="text-center p-2 bg-primary/10 rounded border border-primary/20">
+            <div className="text-center p-2 bg-cyan-500/10 rounded border border-cyan-500/20">
               <div className="text-xs text-muted-foreground">Volatility</div>
-              <div className="font-semibold text-primary">Low</div>
+              <div className="font-semibold text-cyan-400">Low</div>
             </div>
-            <div className="text-center p-2 bg-secondary/10 rounded border border-secondary/20">
+            <div className="text-center p-2 bg-purple-500/10 rounded border border-purple-500/20">
               <div className="text-xs text-muted-foreground">Momentum</div>
-              <div className="font-semibold text-secondary">Strong</div>
+              <div className="font-semibold text-purple-400">Strong</div>
             </div>
-            <div className="text-center p-2 bg-accent/10 rounded border border-accent/20">
+            <div className="text-center p-2 bg-emerald-500/10 rounded border border-emerald-500/20">
               <div className="text-xs text-muted-foreground">Signal</div>
-              <div className="font-semibold text-accent">Buy</div>
+              <div className="font-semibold text-emerald-400">Buy</div>
             </div>
           </div>
         </div>

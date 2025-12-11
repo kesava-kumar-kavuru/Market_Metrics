@@ -225,9 +225,9 @@ const VolatilityRegimePage = () => {
         <div>
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 rounded-lg bg-gradient-to-r from-purple-500/20 to-cyan-500/20">
-              <Brain className="w-8 h-8 text-purple-500 animate-pulse" />
+              <Brain className="w-8 h-8 text-purple-400" />
             </div>
-            <h1 className="text-3xl font-bold gradient-quantum bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold text-foreground">
               Volatility Regime Detection
             </h1>
           </div>
@@ -242,7 +242,8 @@ const VolatilityRegimePage = () => {
             fetchAccuracy();
           }}
           disabled={loading}
-          className="gradient-quantum text-white"
+          variant="quantum"
+          size="default"
         >
           <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
           {loading ? 'Analyzing...' : 'Refresh Analysis'}
@@ -338,7 +339,7 @@ const VolatilityRegimePage = () => {
           {/* Strategy Recommendation */}
           <Card className="bg-card/50 border-border/50">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
+              <CardTitle className="flex items-center gap-2 text-lg text-foreground">
                 <Target className="w-5 h-5 text-primary" />
                 Recommended Strategy
               </CardTitle>
@@ -348,7 +349,7 @@ const VolatilityRegimePage = () => {
                 className="p-4 rounded-lg border-2"
                 style={{ borderColor: currentRegime.regime_info.color }}
               >
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-2 text-foreground">
                   {getStrategyIcon(currentRegime.regime_info.strategy)}
                   <span className="font-bold capitalize">
                     {currentRegime.regime_info.strategy.replace('_', ' ')}
@@ -375,12 +376,12 @@ const VolatilityRegimePage = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Risk Level</span>
-                  <span className="font-semibold">{currentRegime.regime_info.characteristics.risk_level}</span>
+                  <span className="font-semibold text-foreground">{currentRegime.regime_info.characteristics.risk_level}</span>
                 </div>
                 {statistics && (
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-muted-foreground">Current Streak</span>
-                    <span className="font-semibold">{statistics.current_streak} days</span>
+                    <span className="font-semibold text-foreground">{statistics.current_streak} days</span>
                   </div>
                 )}
               </div>
@@ -393,7 +394,7 @@ const VolatilityRegimePage = () => {
       {currentRegime?.feature_values && (
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-foreground">
               <BarChart3 className="w-5 h-5 text-primary" />
               Regime Detection Features
             </CardTitle>
@@ -404,7 +405,7 @@ const VolatilityRegimePage = () => {
                 <div key={key} className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground capitalize">{key}</span>
-                    <span className="font-semibold">{value.toFixed(2)}</span>
+                    <span className="font-semibold text-foreground">{value.toFixed(2)}</span>
                   </div>
                   <Progress 
                     value={Math.min(100, Math.max(0, (value + 50) / 100 * 100))} 
@@ -421,7 +422,7 @@ const VolatilityRegimePage = () => {
       {historyChartData.length > 0 && (
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-foreground">
               <Clock className="w-5 h-5 text-primary" />
               Regime History (90 Days)
             </CardTitle>
@@ -475,7 +476,7 @@ const VolatilityRegimePage = () => {
         {distributionData.length > 0 && (
           <Card className="bg-card/50 border-border/50">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-foreground">
                 <Activity className="w-5 h-5 text-primary" />
                 Regime Distribution
               </CardTitle>
@@ -517,7 +518,7 @@ const VolatilityRegimePage = () => {
         {accuracy && (
           <Card className="bg-card/50 border-border/50">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-foreground">
                 <CheckCircle className="w-5 h-5 text-primary" />
                 Model Accuracy Comparison
               </CardTitle>
@@ -575,7 +576,7 @@ const VolatilityRegimePage = () => {
       {accuracy && (
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-foreground">
               <Target className="w-5 h-5 text-primary" />
               Regime-Specific Model Accuracy
             </CardTitle>
@@ -616,7 +617,7 @@ const VolatilityRegimePage = () => {
       {/* How It Works */}
       <Card className="bg-card/50 border-border/50">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-foreground">
             <Brain className="w-5 h-5 text-primary" />
             How Quantum Regime Detection Works
           </CardTitle>
@@ -626,9 +627,9 @@ const VolatilityRegimePage = () => {
             <div className="p-4 rounded-lg bg-purple-500/10 border border-purple-500/30">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
-                  <span className="text-purple-500 font-bold">1</span>
+                  <span className="text-purple-400 font-bold">1</span>
                 </div>
-                <span className="font-semibold">Feature Extraction</span>
+                <span className="font-semibold text-foreground">Feature Extraction</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Extract trend, volatility, momentum, and drawdown features from market data.
@@ -638,9 +639,9 @@ const VolatilityRegimePage = () => {
             <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/30">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <span className="text-blue-500 font-bold">2</span>
+                  <span className="text-blue-400 font-bold">2</span>
                 </div>
-                <span className="font-semibold">Quantum Encoding</span>
+                <span className="font-semibold text-foreground">Quantum Encoding</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Encode features into 4-qubit quantum states using ZZFeatureMap for correlation capture.
@@ -650,9 +651,9 @@ const VolatilityRegimePage = () => {
             <div className="p-4 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                  <span className="text-cyan-500 font-bold">3</span>
+                  <span className="text-cyan-400 font-bold">3</span>
                 </div>
-                <span className="font-semibold">Quantum Clustering</span>
+                <span className="font-semibold text-foreground">Quantum Clustering</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Apply variational quantum circuit with K-means to classify into 4 regimes.
@@ -662,9 +663,9 @@ const VolatilityRegimePage = () => {
             <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/30">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <span className="text-green-500 font-bold">4</span>
+                  <span className="text-green-400 font-bold">4</span>
                 </div>
-                <span className="font-semibold">Strategy Switch</span>
+                <span className="font-semibold text-foreground">Strategy Switch</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Automatically adjust prediction strategy based on detected regime.
@@ -676,11 +677,11 @@ const VolatilityRegimePage = () => {
             <div className="flex items-start gap-3">
               <Zap className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
               <div>
-                <div className="font-semibold mb-1">Why Regime-Aware Predictions are Better</div>
+                <div className="font-semibold mb-1 text-foreground">Why Regime-Aware Predictions are Better</div>
                 <p className="text-sm text-muted-foreground">
                   Markets behave differently in each regime. A regime-agnostic model applies the same strategy regardless of market conditions. 
                   Our quantum clustering approach detects the current regime and adjusts confidence levels and strategy recommendations accordingly. 
-                  This leads to <span className="text-green-500 font-semibold">+5.8% improvement</span> in prediction accuracy.
+                  This leads to <span className="text-emerald-400 font-semibold">+5.8% improvement</span> in prediction accuracy.
                 </p>
               </div>
             </div>

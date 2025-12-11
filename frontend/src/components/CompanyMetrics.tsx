@@ -50,11 +50,11 @@ const CompanyMetrics = ({ company }: CompanyMetricsProps) => {
   return (
     <Card className="bg-gradient-to-br from-card to-card/80 border-border/50">
       <CardHeader>
-        <CardTitle className="text-lg">Key Metrics</CardTitle>
+        <CardTitle className="text-lg text-foreground">Key Metrics</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {metrics.map((metric, index) => (
-          <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-secondary/30 border border-border/30">
+          <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/30">
             <div className="flex items-center space-x-3">
               <div className="p-2 rounded-lg bg-primary/10">
                 <metric.icon className="h-4 w-4 text-primary" />
@@ -65,7 +65,7 @@ const CompanyMetrics = ({ company }: CompanyMetricsProps) => {
               </div>
             </div>
             <div className={`text-sm font-medium ${
-              metric.positive ? 'text-success' : 'text-destructive'
+              metric.positive ? 'text-emerald-400' : 'text-red-400'
             }`}>
               {metric.change}
             </div>

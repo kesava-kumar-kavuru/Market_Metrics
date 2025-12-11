@@ -172,25 +172,25 @@ const MarketDataPage = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold gradient-quantum bg-clip-text text-transparent">
+          <h1 className="text-3xl font-bold text-foreground">
             Market Data
           </h1>
           <p className="text-muted-foreground">
             FTSE 100 real-time data and historical analysis
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           <Button 
             onClick={loadMarketData} 
             disabled={refreshing}
-            className="hover:border-primary/50"
+            variant="quantum"
           >
             <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
-            Refresh
+            Refresh Data
           </Button>
-          <Button className="button-secondary">
+          <Button variant="outline">
             <Download className="h-4 w-4 mr-2" />
-            Export
+            Export CSV
           </Button>
         </div>
       </div>
@@ -199,22 +199,22 @@ const MarketDataPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
               <BarChart3 className="h-4 w-4 text-primary" />
               Current Price
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold text-foreground">
               £{latestData?.close.toFixed(2)}
             </div>
             <div className="flex items-center gap-2 mt-2">
               {dailyChange >= 0 ? (
-                <TrendingUp className="h-4 w-4 text-accent" />
+                <TrendingUp className="h-4 w-4 text-emerald-400" />
               ) : (
-                <TrendingDown className="h-4 w-4 text-destructive" />
+                <TrendingDown className="h-4 w-4 text-red-400" />
               )}
-              <span className={`text-sm font-medium ${dailyChange >= 0 ? 'text-accent' : 'text-destructive'}`}>
+              <span className={`text-sm font-medium ${dailyChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                 {dailyChange >= 0 ? '+' : ''}{dailyChange.toFixed(2)} ({dailyChangePercent >= 0 ? '+' : ''}{dailyChangePercent.toFixed(2)}%)
               </span>
             </div>
@@ -223,8 +223,8 @@ const MarketDataPage = () => {
 
         <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
-              <TrendingUp className="h-4 w-4 text-accent" />
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
+              <TrendingUp className="h-4 w-4 text-emerald-400" />
               Day High/Low
             </CardTitle>
           </CardHeader>
@@ -232,11 +232,11 @@ const MarketDataPage = () => {
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">High:</span>
-                <span className="font-semibold text-accent">£{latestData?.high.toFixed(2)}</span>
+                <span className="font-semibold text-emerald-400">£{latestData?.high.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-muted-foreground">Low:</span>
-                <span className="font-semibold text-destructive">£{latestData?.low.toFixed(2)}</span>
+                <span className="font-semibold text-red-400">£{latestData?.low.toFixed(2)}</span>
               </div>
             </div>
           </CardContent>
@@ -244,13 +244,13 @@ const MarketDataPage = () => {
 
         <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
-              <Volume2 className="h-4 w-4 text-secondary" />
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
+              <Volume2 className="h-4 w-4 text-purple-400" />
               Volume
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-secondary">
+            <div className="text-2xl font-bold text-purple-400">
               {(latestData?.volume / 1000000).toFixed(1)}M
             </div>
             <div className="text-sm text-muted-foreground mt-2">
@@ -261,7 +261,7 @@ const MarketDataPage = () => {
 
         <Card className="bg-card/50 border-border/50">
           <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2 text-sm">
+            <CardTitle className="flex items-center gap-2 text-sm text-foreground">
               <Activity className="h-4 w-4 text-orange-400" />
               Volatility
             </CardTitle>
@@ -280,7 +280,7 @@ const MarketDataPage = () => {
       {/* Price Chart */}
       <Card className="bg-card/50 border-border/50">
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
+          <CardTitle className="flex items-center justify-between text-foreground">
             <span className="flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-primary" />
               FTSE 100 Price Movement
@@ -299,8 +299,8 @@ const MarketDataPage = () => {
         {/* Volume Chart */}
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Volume2 className="h-5 w-5 text-secondary" />
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <Volume2 className="h-5 w-5 text-purple-400" />
               Trading Volume
             </CardTitle>
           </CardHeader>
@@ -312,8 +312,8 @@ const MarketDataPage = () => {
         {/* Market Statistics */}
         <Card className="bg-card/50 border-border/50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-accent" />
+            <CardTitle className="flex items-center gap-2 text-foreground">
+              <Calendar className="h-5 w-5 text-emerald-400" />
               Period Statistics
             </CardTitle>
           </CardHeader>
@@ -321,11 +321,11 @@ const MarketDataPage = () => {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <span className="text-sm text-muted-foreground">Period High</span>
-                <div className="text-xl font-bold text-accent">£{highPrice.toFixed(2)}</div>
+                <div className="text-xl font-bold text-emerald-400">£{highPrice.toFixed(2)}</div>
               </div>
               <div>
                 <span className="text-sm text-muted-foreground">Period Low</span>
-                <div className="text-xl font-bold text-destructive">£{lowPrice.toFixed(2)}</div>
+                <div className="text-xl font-bold text-red-400">£{lowPrice.toFixed(2)}</div>
               </div>
             </div>
             
@@ -333,21 +333,21 @@ const MarketDataPage = () => {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Total Return</span>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     {(((latestData?.close || 0) - marketData[0]?.close) / marketData[0]?.close * 100).toFixed(2)}%
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Sharpe Ratio</span>
-                  <span className="font-semibold">1.42</span>
+                  <span className="font-semibold text-foreground">1.42</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Beta</span>
-                  <span className="font-semibold">1.00</span>
+                  <span className="font-semibold text-foreground">1.00</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">Market Cap</span>
-                  <span className="font-semibold">£2.1T</span>
+                  <span className="font-semibold text-foreground">£2.1T</span>
                 </div>
               </div>
             </div>
@@ -358,33 +358,33 @@ const MarketDataPage = () => {
       {/* Recent Predictions */}
       <Card className="bg-card/50 border-border/50">
         <CardHeader>
-          <CardTitle>Recent Data with Predictions</CardTitle>
+          <CardTitle className="text-foreground">Recent Data with Predictions</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-border/50">
-                  <th className="text-left py-3 px-4">Date</th>
-                  <th className="text-left py-3 px-4">Open</th>
-                  <th className="text-left py-3 px-4">High</th>
-                  <th className="text-left py-3 px-4">Low</th>
-                  <th className="text-left py-3 px-4">Close</th>
-                  <th className="text-left py-3 px-4">Volume</th>
-                  <th className="text-left py-3 px-4">VQC Signal</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Date</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Open</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">High</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Low</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Close</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">Volume</th>
+                  <th className="text-left py-3 px-4 text-muted-foreground font-medium">VQC Signal</th>
                 </tr>
               </thead>
               <tbody>
                 {marketData.slice(-10).map((data, index) => (
                   <tr key={index} className="border-b border-border/25 hover:bg-muted/50">
-                    <td className="py-3 px-4 text-sm">
+                    <td className="py-3 px-4 text-sm text-foreground">
                       {new Date(data.timestamp).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-4">£{data.open.toFixed(2)}</td>
-                    <td className="py-3 px-4 text-accent">£{data.high.toFixed(2)}</td>
-                    <td className="py-3 px-4 text-destructive">£{data.low.toFixed(2)}</td>
-                    <td className="py-3 px-4 font-semibold">£{data.close.toFixed(2)}</td>
-                    <td className="py-3 px-4 text-sm">
+                    <td className="py-3 px-4 text-foreground">£{data.open.toFixed(2)}</td>
+                    <td className="py-3 px-4 text-emerald-400">£{data.high.toFixed(2)}</td>
+                    <td className="py-3 px-4 text-red-400">£{data.low.toFixed(2)}</td>
+                    <td className="py-3 px-4 font-semibold text-foreground">£{data.close.toFixed(2)}</td>
+                    <td className="py-3 px-4 text-sm text-muted-foreground">
                       {(data.volume / 1000000).toFixed(1)}M
                     </td>
                     <td className="py-3 px-4">

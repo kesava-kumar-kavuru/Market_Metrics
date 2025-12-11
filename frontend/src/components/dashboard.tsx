@@ -13,7 +13,7 @@ export function Dashboard() {
           Real-time Analytics Dashboard
         </Badge>
         <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-          <span className="gradient-neural bg-clip-text text-transparent">
+          <span className="text-primary">
             Quantum Intelligence
           </span>{" "}
           <span className="text-foreground">in Action</span>
@@ -71,74 +71,74 @@ export function Dashboard() {
 
       {/* Performance Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-card border border-border/40 rounded-lg p-6 quantum-glow">
-          <h3 className="text-lg font-semibold mb-4 gradient-quantum bg-clip-text text-transparent">
+        <div className="bg-card border border-border/40 rounded-lg p-6">
+          <h3 className="text-lg font-semibold mb-4 text-cyan-400">
             Training Performance
           </h3>
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Training Loss</span>
-              <span className="text-sm font-medium">0.142</span>
+              <span className="text-sm font-medium text-foreground">0.142</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Validation Loss</span>
-              <span className="text-sm font-medium">0.156</span>
+              <span className="text-sm font-medium text-foreground">0.156</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Epochs</span>
-              <span className="text-sm font-medium">250</span>
+              <span className="text-sm font-medium text-foreground">250</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Learning Rate</span>
-              <span className="text-sm font-medium">0.001</span>
+              <span className="text-sm font-medium text-foreground">0.001</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-card border border-border/40 rounded-lg p-6 quantum-glow">
-          <h3 className="text-lg font-semibold mb-4 gradient-financial bg-clip-text text-transparent">
+        <div className="bg-card border border-border/40 rounded-lg p-6">
+          <h3 className="text-lg font-semibold mb-4 text-emerald-400">
             Market Statistics
           </h3>
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Volatility (30d)</span>
-              <span className="text-sm font-medium">12.3%</span>
+              <span className="text-sm font-medium text-foreground">12.3%</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Sharpe Ratio</span>
-              <span className="text-sm font-medium">1.84</span>
+              <span className="text-sm font-medium text-foreground">1.84</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Max Drawdown</span>
-              <span className="text-sm font-medium">-4.2%</span>
+              <span className="text-sm font-medium text-foreground">-4.2%</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Win Rate</span>
-              <span className="text-sm font-medium">73.4%</span>
+              <span className="text-sm font-medium text-foreground">73.4%</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-card border border-border/40 rounded-lg p-6 quantum-glow">
-          <h3 className="text-lg font-semibold mb-4 gradient-neural bg-clip-text text-transparent">
+        <div className="bg-card border border-border/40 rounded-lg p-6">
+          <h3 className="text-lg font-semibold mb-4 text-purple-400">
             Quantum Metrics
           </h3>
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Circuit Fidelity</span>
-              <span className="text-sm font-medium">98.7%</span>
+              <span className="text-sm font-medium text-foreground">98.7%</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Entanglement</span>
-              <span className="text-sm font-medium">High</span>
+              <span className="text-sm font-medium text-foreground">High</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Gate Count</span>
-              <span className="text-sm font-medium">64</span>
+              <span className="text-sm font-medium text-foreground">64</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm text-muted-foreground">Quantum Volume</span>
-              <span className="text-sm font-medium">16</span>
+              <span className="text-sm font-medium text-foreground">16</span>
             </div>
           </div>
         </div>
