@@ -1,12 +1,11 @@
 import { 
   Home, 
   TrendingUp, 
-  Brain, 
   BarChart3, 
-  GitCompare,
   Activity,
-  Zap,
-  Settings
+  Settings,
+  Cpu,
+  Layers
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
@@ -25,14 +24,12 @@ import {
 const navigationItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
   { title: "Predictions", url: "/predictions", icon: TrendingUp },
-  { title: "VQC Analysis", url: "/vqc-analysis", icon: Brain },
   { title: "Market Data", url: "/market-data", icon: BarChart3 },
-  { title: "SVM vs VQC", url: "/comparison", icon: GitCompare },
-  { title: "Forecast", url: "/forecast", icon: BarChart3 },
 ];
 
 const quantumTools = [
-  { title: "Quantum Metrics", url: "/quantum-metrics", icon: Zap },
+  { title: "Quantum Predictor", url: "/quantum-predictor", icon: Cpu },
+  { title: "Volatility Regime", url: "/volatility-regime", icon: Layers },
   { title: "Live Trading", url: "/live-trading", icon: Activity },
   { title: "Settings", url: "/settings", icon: Settings },
 ];

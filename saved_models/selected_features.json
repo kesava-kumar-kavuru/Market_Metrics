@@ -1,0 +1,12 @@
+{
+  "features": [
+    "W_Trend_Strength",
+    "D_BB_Width",
+    "D_Volatility",
+    "H_Volatility",
+    "W_Momentum4",
+    "W_Volatility"
+  ],
+  "n_features": 6,
+  "saved_at": "2025-12-11T15:29:36.668993"
+}

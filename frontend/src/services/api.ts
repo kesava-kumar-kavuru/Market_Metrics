@@ -35,6 +35,44 @@ export interface QuantumMetrics {
   error_rate: number;
 }
 
+// Quantum Predictor Types
+export interface QuantumPredictRequest {
+  features: number[];
+  model?: string;
+  return_probabilities?: boolean;
+}
+
+export interface QuantumPredictResponse {
+  prediction: number;
+  signal: 'BUY' | 'SELL';
+  confidence: number;
+  model_used: string;
+  probabilities?: number[];
+  features_used: number;
+}
+
+export interface AvailableModel {
+  name: string;
+  type: string;
+  accuracy: number;
+}
+
+export interface ModelsResponse {
+  available_models: AvailableModel[];
+  default_model: string;
+}
+
+export interface FeaturesResponse {
+  features: string[];
+  count: number;
+}
+
+export interface HealthResponse {
+  status: string;
+  models_loaded: string[];
+  timestamp: string;
+}
+
 // Dummy data generators
 const generateMarketData = (days: number = 30): MarketData[] => {
   const data: MarketData[] = [];
@@ -132,4 +170,65 @@ export const fetchLiveMetrics = async () => {
     nextPrediction: Math.random() > 0.5 ? 'BUY' : 'SELL',
     confidence: 0.8 + Math.random() * 0.15
   };
+};
+
+// ============= QUANTUM PREDICTOR API =============
+const API_BASE = "http://127.0.0.1:5000";
+
+export const fetchQuantumPrediction = async (
+  features: number[],
+  model: string = 'vqc',
+  returnProbabilities: boolean = true
+): Promise<QuantumPredictResponse> => {
+  const res = await fetch(`${API_BASE}/api/quantum-predict`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      features,
+      model,
+      return_probabilities: returnProbabilities
+    })
+  });
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.error || 'Failed to fetch quantum prediction');
+  }
+  return res.json();
+};
+
+export const fetchBatchPredictions = async (
+  featuresList: number[][],
+  models: string[] = ['vqc']
+): Promise<{results: any[], total_predictions: number}> => {
+  const res = await fetch(`${API_BASE}/api/batch-predict`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      features_list: featuresList,
+      models
+    })
+  });
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.error || 'Failed to fetch batch predictions');
+  }
+  return res.json();
+};
+
+export const fetchAvailableModels = async (): Promise<ModelsResponse> => {
+  const res = await fetch(`${API_BASE}/api/models`);
+  if (!res.ok) throw new Error('Failed to fetch available models');
+  return res.json();
+};
+
+export const fetchSelectedFeatures = async (): Promise<FeaturesResponse> => {
+  const res = await fetch(`${API_BASE}/api/features`);
+  if (!res.ok) throw new Error('Failed to fetch selected features');
+  return res.json();
+};
+
+export const fetchAPIHealth = async (): Promise<HealthResponse> => {
+  const res = await fetch(`${API_BASE}/api/health`);
+  if (!res.ok) throw new Error('API health check failed');
+  return res.json();
 };

@@ -54,10 +54,21 @@ const LandingPage = () => {
                 <p className="text-sm text-muted-foreground">Quantum Market Prediction</p>
               </div>
             </div>
-            <Badge className="animate-quantum-pulse">
-              <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
-              Quantum Active
-            </Badge>
+            <div className="flex items-center gap-3">
+              <Badge className="animate-quantum-pulse hidden md:flex">
+                <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
+                Live Trading
+              </Badge>
+
+              <a
+                href="https://q-folio-mu.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-2 rounded-md bg-white text-black text-sm font-medium border border-gray-300 hover:bg-gray-50"
+              >
+                qfolio.ai
+              </a>
+            </div>
           </div>
         </div>
       </header>

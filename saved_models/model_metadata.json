@@ -1,0 +1,30 @@
+{
+  "saved_at": "2025-12-11T15:29:36.670994",
+  "models_saved": [
+    "vqc_weights",
+    "vqc_scaler",
+    "Random Forest",
+    "Gradient Boosting",
+    "Logistic Regression",
+    "classical_scaler",
+    "selected_features"
+  ],
+  "n_features": 6,
+  "selected_features": [
+    "W_Trend_Strength",
+    "D_BB_Width",
+    "D_Volatility",
+    "H_Volatility",
+    "W_Momentum4",
+    "W_Volatility"
+  ],
+  "paths": {
+    "vqc_weights": "saved_models\\vqc_weights.npy",
+    "vqc_scaler": "saved_models\\vqc_scaler.joblib",
+    "Random Forest": "saved_models\\random_forest.joblib",
+    "Gradient Boosting": "saved_models\\gradient_boosting.joblib",
+    "Logistic Regression": "saved_models\\logistic_regression.joblib",
+    "classical_scaler": "saved_models\\classical_scaler.joblib",
+    "selected_features": "saved_models\\selected_features.json"
+  }
+}

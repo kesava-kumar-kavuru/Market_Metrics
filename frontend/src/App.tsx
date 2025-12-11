@@ -1,4 +1,3 @@
-import Forecast from "./pages/Forecast";
 import { Toaster } from "./components/ui/toaster";
 import { Toaster as Sonner } from "./components/ui/sonner";
 import { TooltipProvider } from "./components/ui/tooltip";
@@ -10,12 +9,12 @@ import { AppSidebar } from "./components/app-sidebar";
 import LandingPage from "./pages/LandingPage";
 import DashboardPage from "./pages/DashboardPage";
 import PredictionsPage from "./pages/PredictionsPage";
-import VQCAnalysisPage from "./pages/VQCAnalysisPage";
 import MarketDataPage from "./pages/MarketDataPage";
-import ComparisonPage from "./pages/Comparison";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LiveTradingPage from "./pages/LiveTradingPage";
+import QuantumPredictorPage from "./pages/QuantumPredictorPage";
+import VolatilityRegimePage from "./pages/VolatilityRegimePage";
 
 const queryClient = new QueryClient();
 
@@ -68,11 +67,10 @@ const App = () => (
             <Route path="/dashboard" element={<DashboardLayout><DashboardPage /></DashboardLayout>} />
             <Route path="/dashboard" element={<DashboardLayout><DashboardPage /></DashboardLayout>} />
             <Route path="/predictions" element={<DashboardLayout><PredictionsPage /></DashboardLayout>} />
-            <Route path="/vqc-analysis" element={<DashboardLayout><VQCAnalysisPage /></DashboardLayout>} />
             <Route path="/market-data" element={<DashboardLayout><MarketDataPage /></DashboardLayout>} />
-            <Route path="/comparison" element={<DashboardLayout><ComparisonPage /></DashboardLayout>} />
             <Route path="/live-trading" element={<DashboardLayout><LiveTradingPage /></DashboardLayout>} />
-            <Route path="/forecast" element={<DashboardLayout><Forecast /></DashboardLayout>} />
+            <Route path="/quantum-predictor" element={<DashboardLayout><QuantumPredictorPage /></DashboardLayout>} />
+            <Route path="/volatility-regime" element={<DashboardLayout><VolatilityRegimePage /></DashboardLayout>} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
