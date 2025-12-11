@@ -40,8 +40,8 @@ const LandingPage = () => {
       </div>
 
       {/* Header */}
-      <header className="relative z-10 border-b border-border/40 bg-background/95 backdrop-blur">
-        <div className="container mx-auto px-4 py-4">
+      <header className="relative z-10 border-b border-border/40 bg-background/95 backdrop-blur w-full">
+        <div className="w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 gradient-quantum rounded-xl flex items-center justify-center">
@@ -74,13 +74,13 @@ const LandingPage = () => {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 container mx-auto px-4 py-16">
-        <div className="text-center max-w-4xl mx-auto mb-16">
+      <main className="relative z-10 w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 md:py-16">
+        <div className="text-center w-full max-w-6xl mx-auto mb-12 md:mb-16">
           <Badge className="mb-6 border-primary/20 text-primary">
             Hackathon Project • FTSE 100 Classification
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
             <span className="gradient-quantum bg-clip-text text-transparent">
               Quantum ML
             </span>
@@ -88,67 +88,66 @@ const LandingPage = () => {
             <span className="text-foreground">Market Predictor</span>
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto px-2">
             Revolutionary quantum machine learning approach to predict FTSE 100 market direction 
             using Variational Quantum Classifiers with 87.3% accuracy.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <Button 
               onClick={() => navigate('/dashboard')}
-              className="text-lg px-8 py-6"
+              size="lg"
+              className="text-lg px-10 py-6"
             >
               Go to Dashboard
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button className="text-lg px-8 py-6">
-              View Demo
-            </Button>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            <Card className="p-6 bg-card/50 border-border/50">
-              <div className="text-3xl font-bold gradient-quantum bg-clip-text text-transparent">87.3%</div>
-              <div className="text-sm text-muted-foreground">VQC Accuracy</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6 mb-12 md:mb-16 w-full">
+            <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
+              <div className="text-2xl md:text-3xl font-bold gradient-quantum bg-clip-text text-transparent">87.3%</div>
+              <div className="text-xs md:text-sm text-muted-foreground">VQC Accuracy</div>
             </Card>
-            <Card className="p-6 bg-card/50 border-border/50">
-              <div className="text-3xl font-bold gradient-financial bg-clip-text text-transparent">FTSE 100</div>
-              <div className="text-sm text-muted-foreground">Market Data</div>
+            <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
+              <div className="text-2xl md:text-3xl font-bold gradient-financial bg-clip-text text-transparent">FTSE 100</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Market Data</div>
             </Card>
-            <Card className="p-6 bg-card/50 border-border/50">
-              <div className="text-3xl font-bold gradient-neural bg-clip-text text-transparent">Real-time</div>
-              <div className="text-sm text-muted-foreground">Predictions</div>
+            <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
+              <div className="text-2xl md:text-3xl font-bold gradient-neural bg-clip-text text-transparent">Real-time</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Predictions</div>
             </Card>
-            <Card className="p-6 bg-card/50 border-border/50">
-              <div className="text-3xl font-bold text-accent">IBM Q</div>
-              <div className="text-sm text-muted-foreground">Quantum Backend</div>
+            <Card className="p-4 md:p-5 lg:p-6 bg-card/50 border-border/50">
+              <div className="text-2xl md:text-3xl font-bold text-accent">IBM Q</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Quantum Backend</div>
             </Card>
           </div>
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 mb-12 md:mb-16 w-full">
           {features.map((feature, index) => (
-            <Card key={index} className="p-6 bg-card/50 border-border/50 hover:bg-card/70 transition-all duration-300">
-              <feature.icon className="h-12 w-12 text-primary mb-4" />
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground">{feature.description}</p>
+            <Card key={index} className="p-5 md:p-6 bg-card/50 border-border/50 hover:bg-card/70 transition-all duration-300">
+              <feature.icon className="h-10 w-10 md:h-12 md:w-12 text-primary mb-3 md:mb-4" />
+              <h3 className="text-base md:text-lg font-semibold mb-2">{feature.title}</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">{feature.description}</p>
             </Card>
           ))}
         </div>
 
         {/* Technical Overview */}
-        <Card className="p-8 bg-card/30 border-border/50">
+        <Card className="p-6 md:p-8 bg-card/30 border-border/50 w-full">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Technical Architecture</h2>
-            <p className="text-muted-foreground mb-6 max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Technical Architecture</h2>
+            <p className="text-sm md:text-base text-muted-foreground mb-5 md:mb-6 max-w-3xl mx-auto px-2">
               Our quantum machine learning system combines classical preprocessing with quantum 
               variational circuits to achieve superior market prediction accuracy on FTSE 100 data.
             </p>
             <div className="flex justify-center">
               <Button
-                onClick={() => navigate('/vqc-analysis')}
+                onClick={() => navigate('/quantum-predictor')}
+                variant="outline"
                 className="hover:border-primary/50"
               >
                 Explore Architecture

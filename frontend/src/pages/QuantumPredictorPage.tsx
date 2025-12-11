@@ -62,12 +62,12 @@ const QuantumPredictorPage = () => {
   const [selectedModel, setSelectedModel] = useState('quantum_vqc');
   const [timeframe, setTimeframe] = useState('daily');
 
-  // Model comparison data
+  // Model comparison data - actual trained model accuracies
+  // IBM Brisbane VQC: Precision 0.695, Recall 0.700, F1 0.690
   const modelComparison = [
-    { model: 'Quantum VQC', accuracy: 0.65, color: '#8b5cf6' },
-    { model: 'Random Forest', accuracy: 0.58, color: '#3b82f6' },
-    { model: 'Gradient Boost', accuracy: 0.57, color: '#10b981' },
-    { model: 'Logistic Reg', accuracy: 0.62, color: '#f59e0b' }
+    { model: 'VQC (IBM Brisbane)', accuracy: 0.70, color: '#8b5cf6' },
+    { model: 'VQC (Simulator)', accuracy: 0.633, color: '#06b6d4' },
+    { model: 'Random Forest', accuracy: 0.467, color: '#3b82f6' },
   ];
 
   // Fetch prediction from backend

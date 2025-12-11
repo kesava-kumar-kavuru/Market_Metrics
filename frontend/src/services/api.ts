@@ -114,27 +114,29 @@ export const fetchMarketData = async (): Promise<MarketData[]> => {
 
 export const fetchModelAccuracies = async (): Promise<ModelAccuracy[]> => {
   await new Promise(resolve => setTimeout(resolve, 300));
+  // Actual trained model accuracies from FTSE notebooks
+  // Latest VQC (IBM Brisbane): 70% accuracy, 445.7s execution
   return [
     {
-      model: 'VQC (Quantum)',
-      accuracy: 87.3,
-      precision: 85.1,
-      recall: 89.2,
-      f1Score: 87.1
+      model: 'VQC (IBM Brisbane)',
+      accuracy: 70.0,
+      precision: 69.5,
+      recall: 70.0,
+      f1Score: 69.0
     },
     {
-      model: 'SVM (Classical)',
-      accuracy: 82.1,
-      precision: 80.4,
-      recall: 83.8,
-      f1Score: 82.0
+      model: 'VQC (Simulator)',
+      accuracy: 63.3,
+      precision: 62.7,
+      recall: 63.3,
+      f1Score: 63.0
     },
     {
-      model: 'IBM Quantum',
-      accuracy: 89.1,
-      precision: 87.5,
-      recall: 90.3,
-      f1Score: 88.9
+      model: 'Random Forest',
+      accuracy: 46.7,
+      precision: 50.0,
+      recall: 50.0,
+      f1Score: 41.0
     }
   ];
 };
